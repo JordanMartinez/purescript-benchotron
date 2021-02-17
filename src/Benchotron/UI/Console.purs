@@ -21,7 +21,6 @@ import Effect.Now (now)
 import Node.FS.Sync (writeTextFile, mkdir, stat, exists)
 import Node.FS.Stats (isDirectory)
 import Node.Encoding (Encoding(..))
-import Global (readInt)
 
 import Benchotron.Core (BenchmarkResult, Benchmark, BenchM,
                         runBenchM, runBenchmark, unpackBenchmark)
@@ -32,8 +31,9 @@ data Answer = All | One Int
 
 parseAnswer :: String -> Maybe Answer
 parseAnswer "*" = Just All
-parseAnswer x = let y = fromNumber $ readInt 10 x
-                in  map One y
+parseAnswer x = do
+  i <- fromString x
+  map One $ fromNumber i
 
 -- | TODO: Only fetch one seed from global random generator, have this return
 -- | BenchM instead?
