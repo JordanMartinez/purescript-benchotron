@@ -7,7 +7,7 @@ import Data.Maybe (Maybe(..))
 import Data.Foldable (traverse_)
 import Data.Profunctor.Strong (second, (&&&))
 import Data.Array as A
-import Data.Int (fromNumber)
+import Data.Int (fromNumber, fromString)
 import Data.String (joinWith)
 import Data.JSDate as JSD
 import Data.DateTime.Instant as DDI
