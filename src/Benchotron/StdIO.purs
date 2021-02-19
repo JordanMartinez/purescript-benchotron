@@ -23,7 +23,7 @@ question ::
 question q callback = do
   i <- createConsoleInterface noCompletion
   setLineHandler (\s -> close i >>= const (callback s)) i
-  setPrompt q (S.length q) i
+  setPrompt q i
   prompt i
   pure unit
 
