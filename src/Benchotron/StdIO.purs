@@ -6,7 +6,6 @@ module Benchotron.StdIO
   ) where
 
 import Prelude
-import Data.String as S
 import Effect (Effect)
 import Node.ReadLine (Interface, prompt, setPrompt, close,
                       setLineHandler, noCompletion, createConsoleInterface)
