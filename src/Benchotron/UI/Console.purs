@@ -7,7 +7,7 @@ import Data.Maybe (Maybe(..))
 import Data.Foldable (traverse_)
 import Data.Profunctor.Strong (second, (&&&))
 import Data.Array as A
-import Data.Int (fromNumber, fromString)
+import Data.Int (fromString)
 import Data.String (joinWith)
 import Data.JSDate as JSD
 import Data.DateTime.Instant as DDI
@@ -31,9 +31,7 @@ data Answer = All | One Int
 
 parseAnswer :: String -> Maybe Answer
 parseAnswer "*" = Just All
-parseAnswer x = do
-  i <- fromString x
-  map One $ fromNumber i
+parseAnswer x = map One $ fromString x
 
 -- | TODO: Only fetch one seed from global random generator, have this return
 -- | BenchM instead?
